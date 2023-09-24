@@ -3,7 +3,6 @@ import { cartActions } from "../redux-state/CartState";
 import { useDispatch } from "react-redux";
 
 import { MdAdd } from "react-icons/md";
-//import { GrFormSubtract } from "react-icons/gr"
 import { RiSubtractFill } from "react-icons/ri";
 
 import { Link } from "react-router-dom";
