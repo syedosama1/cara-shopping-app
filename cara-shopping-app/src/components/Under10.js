@@ -10,7 +10,6 @@ import {
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import filterBtn from "../assets/filterBtn.png";
-import sortBtn from "../assets/sortBtn.png"
 import { useState } from 'react';
 import { store } from "../productsStore/Store";
 import HoverImage from 'react-hover-image/build';

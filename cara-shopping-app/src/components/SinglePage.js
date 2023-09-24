@@ -4,8 +4,6 @@ import { store } from '../productsStore/Store';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../redux-state/CartState';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import BreadCrumb from './BreadCrumb';
 import "../styles/SinglePage.css";
 import { AiFillStar } from "react-icons/ai";
 import SinglePageFAQ from './SinglePageFAQ';
@@ -15,13 +13,12 @@ import JournalSection from "./JournalSection"
 import SearchBox from './SearchBox';
 import Review1 from './Review1';
 
-import better from "../assets/better.jpeg";
 import { FaShippingFast } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { BsCurrencyDollar } from "react-icons/bs";
 import SPFooter from './SPFooter';
 import {GiCardboardBoxClosed} from "react-icons/gi";
-import { useToast } from '@chakra-ui/react'
+import { Breadcrumb, useToast } from '@chakra-ui/react'
 import Marquee from "react-fast-marquee";
 
 
@@ -89,7 +86,7 @@ const SinglePage = () => {
     <div className='singlePageMainParent relative top-36'>
 
       <div className="bgGrey h-14 sinLih">
-        <BreadCrumb name={title} />
+        <Breadcrumb name={title} />
       </div>
 
 
@@ -181,9 +178,7 @@ const SinglePage = () => {
         <p className='ml'> easy returns </p>
       </div>
 
-      <div className='spfooterHold absolute'>
-        <SPFooter />
-      </div>
+     
 
     </div>
   )
