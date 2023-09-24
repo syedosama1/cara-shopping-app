@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { cartActions } from "../redux-state/CartState";
 import { useDispatch } from "react-redux";
 
@@ -12,15 +11,10 @@ import { Link } from "react-router-dom";
 const Cart = (props) => {
   const { title, quantity, price, id, image } = props.item;
 
-  const cartList = useSelector((state) => state.cart.items);
 
   const dispacth = useDispatch();
 
-  const totalPrice = cartList
-    .map((item) => {
-      return item.quantity * item.price;
-    })
-    .reduce((totalPrice, singleItemPrice) => totalPrice + singleItemPrice, 0);
+  
 
   const removeItemFromCartHandler = () => {
     dispacth(cartActions.removeItemFromCart(id));
@@ -46,7 +40,7 @@ const Cart = (props) => {
           <Link to={`/${id}`}>
             <img
               src={image}
-              className=" relative  fof w-44 rounded-lg cartImg"
+              className=" relative  fof w-44 rounded-lg cartImg" alt=""
             />
           </Link>
         </div>

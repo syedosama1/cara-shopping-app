@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
-import u20bg from '../assets/u20bg.png';
-import '../styles/Under20.css';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-} from '@chakra-ui/react';
-import { ChevronRightIcon } from '@chakra-ui/icons';
-import { Link } from 'react-router-dom';
-import filterBtn from '../assets/filterBtn.png';
-import { store } from '../productsStore/Store';
-import HoverImage from 'react-hover-image/build';
-import JournalSection from './JournalSection';
-import { FaShippingFast, FaLock } from 'react-icons/fa';
-import { BsCurrencyDollar } from 'react-icons/bs';
-import better from '../assets/better.jpeg';
+import React, { useState } from "react";
+import u20bg from "../assets/u20bg.png";
+import "../styles/Under20.css";
+import { Breadcrumb, BreadcrumbItem } from "@chakra-ui/react";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
+import filterBtn from "../assets/filterBtn.png";
+import { store } from "../productsStore/Store";
+import HoverImage from "react-hover-image/build";
+import JournalSection from "./JournalSection";
+import { FaShippingFast, FaLock, FaDollarSign } from "react-icons/fa";
+import better from "../assets/better.jpeg";
 
 const Under20 = () => {
   const [filter, setFilter] = useState(false);
@@ -55,38 +51,38 @@ const Under20 = () => {
   };
 
   var bodyLotionProducts = store.filter((product) =>
-    product.type.includes('bodyLotion')
+    product.type.includes("bodyLotion")
   );
 
   var bodyScrubProducts = store.filter((product) =>
-    product.type.includes('bodyScrub')
+    product.type.includes("bodyScrub")
   );
 
   var bodyWashProducts = store.filter((product) =>
-    product.type.includes('bodywash')
+    product.type.includes("bodywash")
   );
 
   const bgAddHandler = (e) => {
-    e.target.classList.add('whi');
+    e.target.classList.add("whi");
   };
 
   const bgRemoveHandler = (e) => {
-    e.target.classList.remove('whi');
+    e.target.classList.remove("whi");
   };
 
   return (
-    <div className="u20MainParent fof ">
+    <div className="u20MainParent fof">
       <p className="bg-white z-50 relative w-full"> </p>
 
       <div className="u20Hold">
-        <img src={u20bg} className="u20Pic" alt="Image" />
+      <img src={u20bg} className="u20Pic" alt="" />
       </div>
 
       <div className="u20HeadingHold gap-20 justify-center relative flex flex-col">
         <p className="u20Heading"> Under $20 </p>
         <p className="u20Desc">
-          Shop Sukin natural and vegan collection of skincare and hair care gifts
-          under $20.
+          Shop Sukin natural and vegan collection of skincare and hair care
+          gifts under $20.
         </p>
       </div>
 
@@ -107,29 +103,34 @@ const Under20 = () => {
       <div className="filterSortHold flex flex-row gap-8 absolute text-left">
         <img
           src={filterBtn}
-          className="w-36 cursor-pointer scale"
+          className="w-36 cursor-pointer" // Removed 'scale' class
           onClick={filterShowHandler}
           alt="Filter Button"
         />
       </div>
 
-      <div className={`filterOptionsHold  relative ${filter ? 'block' : 'hidden'}`}>
+      <div
+        className={`filterOptionsHold  relative ${filter ? "block" : "hidden"}`}
+      >
         <div className="flex rounded-xl gap-8 flex-col boxSh fof absolute ">
-          <p className="ml-12 scale cursor-pointer scale" onClick={bodyLotionHandler}>
-            {' '}
+          <p className="ml-12 cursor-pointer" onClick={bodyLotionHandler}>
+            {" "}
             Body Lotion
           </p>
-          <p className="ml-12 scale cursor-pointer" onClick={bodyWashHandler}>
-            {' '}
-            Body Wash{' '}
+          <p className="ml-12 cursor-pointer" onClick={bodyWashHandler}>
+            {" "}
+            Body Wash{" "}
           </p>
-          <p className="ml-12 scale cursor-pointer" onClick={bodyScrubHandler}>
-            {' '}
-            Body Scrub{' '}
+          <p className="ml-12 cursor-pointer" onClick={bodyScrubHandler}>
+            {" "}
+            Body Scrub{" "}
           </p>
-          <p className="ml-12 scale cursor-pointer text-white" onClick={allShowHandler}>
-            {' '}
-            All Products{' '}
+          <p
+            className="ml-12 cursor-pointer text-white"
+            onClick={allShowHandler}
+          >
+            {" "}
+            All Products{" "}
           </p>
         </div>
       </div>
@@ -138,9 +139,12 @@ const Under20 = () => {
       {allShow && (
         <div className="flex u20prodsHold flex-wrap justify-center text-center">
           {store.map((item) => {
-            if (item.type.includes('all')) {
+            if (item.type.includes("all")) {
               return (
-                <div className="card w-96 bg-base-100 u20IndResponsive shadow-xl" key={item.id}>
+                <div
+                  className="card w-96 bg-base-100 u20IndResponsive shadow-xl"
+                  key={item.id}
+                >
                   <Link to={`/${item.id}`}>
                     <figure className="px-10 pt-10">
                       <HoverImage
@@ -152,7 +156,9 @@ const Under20 = () => {
                     </figure>
                   </Link>
                   <div className="card-body items-center text-center">
-                    <h2 className="mb-1 fof text-lg font-semibold">{item.name}</h2>
+                    <h2 className="mb-1 fof text-lg font-semibold">
+                      {item.name}
+                    </h2>
                     <Link to={`/${item.id}`}>
                       <div className="card-actions">
                         <button
@@ -160,15 +166,19 @@ const Under20 = () => {
                           onMouseEnter={bgAddHandler}
                           onMouseLeave={bgRemoveHandler}
                         >
-                          Know More{' '}
+                          Know More{" "}
                         </button>
                         <p className="btnLine relative bg-black h-8"> </p>
-                        <h2 className="text-xl mb-2 fof u20Price">${item.price}</h2>
+                        <h2 className="text-xl mb-2 fof u20Price">
+                          ${item.price}
+                        </h2>
                       </div>
                     </Link>
                   </div>
                 </div>
               );
+            } else {
+              return null; // Return null when the condition is not met
             }
           })}
         </div>
@@ -178,7 +188,7 @@ const Under20 = () => {
       {bodyLotionShow && (
         <div className="flex u20prodsHold flex-wrap justify-center text-center">
           {bodyLotionProducts.map((item) => {
-            if (item.type.includes('all')) {
+            if (item.type.includes("all")) {
               return (
                 <div className="card w-96 bg-base-100 shadow-xl" key={item.id}>
                   <Link to={`/${item.id}`}>
@@ -192,7 +202,9 @@ const Under20 = () => {
                     </figure>
                   </Link>
                   <div className="card-body items-center text-center">
-                    <h2 className="mb-1 fof text-lg font-semibold">{item.name}</h2>
+                    <h2 className="mb-1 fof text-lg font-semibold">
+                      {item.name}
+                    </h2>
                     <Link to={`/${item.id}`}>
                       <div className="card-actions">
                         <button
@@ -200,15 +212,19 @@ const Under20 = () => {
                           onMouseEnter={bgAddHandler}
                           onMouseLeave={bgRemoveHandler}
                         >
-                          Know More{' '}
+                          Know More{" "}
                         </button>
                         <p className="btnLine relative bg-black h-8"> </p>
-                        <h2 className="text-xl mb-2 fof u20Price">${item.price}</h2>
+                        <h2 className="text-xl mb-2 fof u20Price">
+                          ${item.price}
+                        </h2>
                       </div>
                     </Link>
                   </div>
                 </div>
               );
+            } else {
+              return null; // Return null when the condition is not met
             }
           })}
         </div>
@@ -218,7 +234,7 @@ const Under20 = () => {
       {bodyWashShow && (
         <div className="flex u20prodsHold flex-wrap justify-center text-center">
           {bodyWashProducts.map((item) => {
-            if (item.type.includes('all')) {
+            if (item.type.includes("all")) {
               return (
                 <div className="card w-96 bg-base-100 shadow-xl" key={item.id}>
                   <Link to={`/${item.id}`}>
@@ -232,7 +248,9 @@ const Under20 = () => {
                     </figure>
                   </Link>
                   <div className="card-body items-center text-center">
-                    <h2 className="mb-1 fof text-lg font-semibold">{item.name}</h2>
+                    <h2 className="mb-1 fof text-lg font-semibold">
+                      {item.name}
+                    </h2>
                     <Link to={`/${item.id}`}>
                       <div className="card-actions">
                         <button
@@ -240,15 +258,19 @@ const Under20 = () => {
                           onMouseEnter={bgAddHandler}
                           onMouseLeave={bgRemoveHandler}
                         >
-                          Know More{' '}
+                          Know More{" "}
                         </button>
                         <p className="btnLine relative bg-black h-8"> </p>
-                        <h2 className="text-xl mb-2 fof u20Price">${item.price}</h2>
+                        <h2 className="text-xl mb-2 fof u20Price">
+                          ${item.price}
+                        </h2>
                       </div>
                     </Link>
                   </div>
                 </div>
               );
+            } else {
+              return null; // Return null when the condition is not met
             }
           })}
         </div>
@@ -258,7 +280,7 @@ const Under20 = () => {
       {bodyScrubShow && (
         <div className="flex u20prodsHold flex-wrap justify-center text-center">
           {bodyScrubProducts.map((item) => {
-            if (item.type.includes('all')) {
+            if (item.type.includes("all")) {
               return (
                 <div className="card w-96 bg-base-100 shadow-xl" key={item.id}>
                   <Link to={`/${item.id}`}>
@@ -272,7 +294,9 @@ const Under20 = () => {
                     </figure>
                   </Link>
                   <div className="card-body items-center text-center">
-                    <h2 className="mb-1 fof text-lg font-semibold">{item.name}</h2>
+                    <h2 className="mb-1 fof text-lg font-semibold">
+                      {item.name}
+                    </h2>
                     <Link to={`/${item.id}`}>
                       <div className="card-actions">
                         <button
@@ -280,15 +304,19 @@ const Under20 = () => {
                           onMouseEnter={bgAddHandler}
                           onMouseLeave={bgRemoveHandler}
                         >
-                          Know More{' '}
+                          Know More{" "}
                         </button>
                         <p className="btnLine relative bg-black h-8"> </p>
-                        <h2 className="text-xl mb-2 fof u20Price">${item.price}</h2>
+                        <h2 className="text-xl mb-2 fof u20Price">
+                          ${item.price}
+                        </h2>
                       </div>
                     </Link>
                   </div>
                 </div>
               );
+            } else {
+              return null; // Return null when the condition is not met
             }
           })}
         </div>
@@ -302,8 +330,8 @@ const Under20 = () => {
         <div className="u20FeaturesHold flex flex-row relative">
           <FaShippingFast className="w-16 h-20" />
           <FaLock className="w-12 h-16" />
-          <BsCurrencyDollar className="w-16 h-20" />
-          <img src={better} alt="Image" className="w-20" />
+          <FaDollarSign className="w-16 h-20" />
+          <img src={better} alt="Sukin Brand Logo" className="w-20" />
         </div>
 
         <div className="u20TextFeatureHold fof flex flex-row relative uppercase">
